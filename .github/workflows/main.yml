@@ -2,16 +2,15 @@ name: Collect Dott Positions
 
 on:
   schedule:
-    - cron:  '*/10 * * * *'   # Toutes les 10 minutes
-  workflow_dispatch:           # Permet de lancer manuellement
+    - cron:  '*/10 * * * *'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -22,7 +21,7 @@ jobs:
       run: pip install pandas requests
 
     - name: Run the collector
-      run: python py_trigger.py
+      run: python collect_dott.py
 
     - name: Commit changes
       env:
