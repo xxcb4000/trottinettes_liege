@@ -22,7 +22,7 @@ jobs:
       run: pip install pandas requests
 
     - name: Run the collector
-      run: python collect_dott.py
+      run: python py_trigger.py
 
     - name: Commit changes
       run: |
