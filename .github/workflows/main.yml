@@ -25,6 +25,8 @@ jobs:
       run: python py_trigger.py
 
     - name: Commit changes
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
