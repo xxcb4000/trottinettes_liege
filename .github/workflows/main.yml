@@ -32,4 +32,6 @@ jobs:
         git add dott_positions.csv
         git commit -m "Data update $(date -u '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
         git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
+        git remote -v
+        git config --list
         git push origin HEAD:${{ github.ref }}
