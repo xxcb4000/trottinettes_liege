@@ -35,3 +35,9 @@ jobs:
         git config --local --unset-all http.https://github.com/.extraheader
         git remote -v
         git push origin HEAD:${{ github.ref }}
+
+    - name: Notification Telegram
+      run: |
+        curl -s "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+        -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+        -d "text=✅ La collecte de trottinettes vient de s’exécuter avec succès !"
